@@ -85,3 +85,29 @@ VITE_API_BASE_URL=http://localhost:8000
 ```bash
 docker run --env-file .env -d -p 80:5173 student-frontend:v1
 ```
+
+---
+
+### 🐳 Run Backend and Frontend with Docker Compose
+
+#### 1. Build both images (if not prebuilt)
+```bash
+docker compose build
+```
+
+#### 2. Start the services
+```bash
+docker compose up
+```
+
+This will build and run both backend and frontend containers together, handling networking and dependencies automatically.
+
+---
+
+### POST A DATA
+
+```bash
+curl -X POST "http://localhost:8000/students/" \
+-H "Content-Type: application/json" \
+-d '{"name": "Kevin", "age": 21, "email": "kevin@example.com"}'
+```
