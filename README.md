@@ -60,6 +60,7 @@ npm install
 ```env
 VITE_API_BASE_URL=http://localhost:8000
 ```
+**Note: If localhost does not work, try to change it to your backend ip or url.** 
 
 #### 3. Run the frontend
 ```bash
@@ -80,10 +81,11 @@ docker build -t student-frontend:v1 .
 ```env
 VITE_API_BASE_URL=http://localhost:8000
 ```
+**Note: If localhost does not work, try to change it to your backend ip or url.** 
 
 #### 3. Run the container
 ```bash
-docker run --env-file .env -d -p 80:5173 student-frontend:v1
+docker run --env-file .env -d -p 5173:5173 student-frontend:v1
 ```
 
 ---
@@ -101,6 +103,8 @@ docker compose up
 ```
 
 This will build and run both backend and frontend containers together, handling networking and dependencies automatically.
+
+**Note: If localhost does not work, try to change backend url inside docker-compose.yml it to your backend ip or url.**
 
 ---
 
