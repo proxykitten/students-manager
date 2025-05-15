@@ -15,7 +15,8 @@ services:
       - postgres_data:/var/lib/postgresql/data
 
   backend:
-    image: student-backend:v1  # use your built image
+    image: student-backend:v1
+    build: ./student-backend
     container_name: backend
     environment:
       DATABASE_URL: postgresql://appsuser:password123@db:5432/studentdb
@@ -26,7 +27,8 @@ services:
     command: uvicorn app.main:app --host 0.0.0.0 --port 8000
 
   frontend:
-    image: student-frontend:v1  # use your built image
+    image: student-frontend:v1
+    build: ./student-frontend
     container_name: frontend
     environment:
       VITE_API_BASE_URL: http://localhost:8000
