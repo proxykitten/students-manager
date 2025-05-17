@@ -29,7 +29,7 @@ def create_student(student: schemas.StudentCreate, db: Session = Depends(get_db)
     return crud.create_student(db, student)
 
 @app.get("/students/", response_model=list[schemas.Student])
-def read_students(skip: int = 0, limit: int = 10, db: Session = Depends(get_db)):
+def read_students(skip: int = 0, limit: int | None = None, db: Session = Depends(get_db)):
     return crud.get_students(db, skip=skip, limit=limit)
 
 @app.get("/students/{student_id}", response_model=schemas.Student)

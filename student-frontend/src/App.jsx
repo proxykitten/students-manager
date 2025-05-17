@@ -1,3 +1,4 @@
+// src/App.jsx
 import { useEffect, useState } from "react";
 import { getStudents, deleteStudent } from "./api/students";
 import StudentForm from "./components/StudentForm";
@@ -7,8 +8,12 @@ function App() {
   const [students, setStudents] = useState([]);
 
   const loadStudents = async () => {
-    const res = await getStudents();
-    setStudents(res.data);
+    try {
+      const res = await getStudents();
+      setStudents(res.data);
+    } catch (err) {
+      console.error("Failed to load students:", err);
+    }
   };
 
   useEffect(() => {
@@ -20,8 +25,12 @@ function App() {
   };
 
   const handleDelete = async (id) => {
-    await deleteStudent(id);
-    setStudents(students.filter((s) => s.id !== id));
+    try {
+      await deleteStudent(id);
+      setStudents(students.filter((s) => s.id !== id));
+    } catch (err) {
+      console.error("Failed to delete student:", err);
+    }
   };
 
   return (

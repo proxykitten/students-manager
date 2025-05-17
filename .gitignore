@@ -1,0 +1,4 @@
+student-backend/.env
+student-backend/app/__pycache__/
+student-frontend/.env
+student-frontend/node_modules/
