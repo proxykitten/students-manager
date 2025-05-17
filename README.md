@@ -21,7 +21,7 @@ DATABASE_URL=postgresql://user:password@host:5432/dbname
 
 #### 3. Run the backend
 ```bash
-uvicorn app.main:app --host 0.0.0.0 --port 8000
+uvicorn app.main:app --port 8000
 ```
 
 ---
@@ -58,7 +58,7 @@ npm install
 
 #### 2. Create a `.env` file with the backend service URL
 ```env
-VITE_API_BASE_URL=http://localhost:8000
+VITE_BACKEND_URL=http://localhost:8000
 ```
 **Note: If localhost does not work, try to change it to your backend ip or url.** 
 
@@ -79,7 +79,7 @@ docker build -t student-frontend:v1 .
 
 #### 2. Create a `.env` file with the backend service URL
 ```env
-VITE_API_BASE_URL=http://localhost:8000
+VITE_BACKEND_URL=http://localhost:8000
 ```
 **Note: If localhost does not work, try to change it to your backend ip or url.** 
 
@@ -105,13 +105,3 @@ docker compose up
 This will build and run both backend and frontend containers together, handling networking and dependencies automatically.
 
 **Note: If localhost does not work, try to change backend url inside docker-compose.yml it to your backend ip or url.**
-
----
-
-### POST A DATA
-
-```bash
-curl -X POST "http://localhost:8000/students/" \
--H "Content-Type: application/json" \
--d '{"name": "Kevin", "age": 21, "email": "kevin@example.com"}'
-```
