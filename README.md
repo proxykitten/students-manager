@@ -26,6 +26,41 @@ uvicorn app.main:app --port 8000
 
 ---
 
+## Frontend
+
+### 🚀 Run Locally
+
+#### 1. Install dependencies
+```bash
+cd student-frontend-ssr
+npm install
+```
+
+#### 2. Create a `.env` file with the backend service URL
+```env
+BACKEND_URL=http://localhost:8000
+```
+
+#### 3. Build the project
+```bash
+npm run build
+```
+
+#### 4. Run the frontend
+```bash
+npm start
+```
+
+#### 5. Access
+Open the url in your browser
+```bash
+http://localhost:8000
+```
+
+**Note: If frontend failed to make connections to backend using localhost, try to change the backend url .env from localhost to ip or other endpoint.** 
+
+---
+
 ### 🐳 Run with Docker
 
 #### 1. Build the Docker image
@@ -48,35 +83,6 @@ docker run --env-file .env -d -p 8000:8000 student-backend:v1
 
 ## Frontend
 
-### 🚀 Run Locally
-
-#### 1. Install dependencies
-```bash
-cd student-frontend-ssr
-npm install
-```
-
-#### 2. Create a `.env` file with the backend service URL
-```env
-BACKEND_URL=http://localhost:8000
-```
-
-#### 3. Build the project (optional)
-```bash
-npm run build
-```
-
-#### 4. Run the frontend
-```bash
-npm start
-```
-
-**Note: If frontend failed to make connections to backend using localhost, try to change the backend url .env from localhost to ip or other endpoint.** 
-
----
-
-### 🐳 Run with Docker
-
 #### 1. Build the Docker image
 ```bash
 cd student-frontend-ssr
@@ -93,11 +99,17 @@ BACKEND_URL=http://localhost:8000
 docker run --env-file .env -d -p 5173:5173 student-frontend:v1
 ```
 
+#### 4. Access
+Open the url in your browser
+```bash
+http://localhost:5173
+```
+
 **Note: If frontend failed to make connections to backend using localhost, try to change the backend url .env from localhost to ip or other endpoint.**  
 
 ---
 
-### 🐳 Run Backend and Frontend with Docker Compose
+### 🐳 Run with Docker Compose
 
 #### 1. Build both images (if not prebuilt)
 ```bash
@@ -107,6 +119,12 @@ docker compose build
 #### 2. Start the services
 ```bash
 docker compose up
+```
+
+#### 3. Access
+Open the url in your browser
+```bash
+http://localhost:5173
 ```
 
 This will build and run both backend and frontend containers together, handling networking and dependencies automatically.
