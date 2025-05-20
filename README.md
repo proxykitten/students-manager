@@ -58,14 +58,20 @@ npm install
 
 #### 2. Create a `.env` file with the backend service URL
 ```env
-VITE_BACKEND_URL=http://localhost:8000
+BACKEND_URL=http://localhost:8000
 ```
-**Note: If localhost does not work, try to change it to your backend ip or url.** 
 
-#### 3. Run the frontend
+#### 3. Build the project (optional)
 ```bash
-npx vite --host 0.0.0.0 --port 5173
+npm run build
 ```
+
+#### 4. Run the frontend
+```bash
+npm start
+```
+
+**Note: If frontend failed to make connections to backend using localhost, try to change the backend url .env from localhost to ip or other endpoint.** 
 
 ---
 
@@ -79,14 +85,15 @@ docker build -t student-frontend:v1 .
 
 #### 2. Create a `.env` file with the backend service URL
 ```env
-VITE_BACKEND_URL=http://localhost:8000
+BACKEND_URL=http://localhost:8000
 ```
-**Note: If localhost does not work, try to change it to your backend ip or url.** 
 
 #### 3. Run the container
 ```bash
 docker run --env-file .env -d -p 5173:5173 student-frontend:v1
 ```
+
+**Note: If frontend failed to make connections to backend using localhost, try to change the backend url .env from localhost to ip or other endpoint.**  
 
 ---
 
@@ -104,4 +111,4 @@ docker compose up
 
 This will build and run both backend and frontend containers together, handling networking and dependencies automatically.
 
-**Note: If localhost does not work, try to change backend url inside docker-compose.yml it to your backend ip or url.**
+**Note: If frontend failed to make connections to backend using localhost, try to change the backend url inside docker-compose.yml from localhost to ip or other endpoint.** 
