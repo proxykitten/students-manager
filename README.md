@@ -116,6 +116,8 @@ http://localhost:5173
 docker compose build
 ```
 
+This will build and run both backend and frontend containers together.
+
 #### 2. Start the services
 ```bash
 docker compose up
@@ -126,7 +128,5 @@ Open the url in your browser
 ```bash
 http://localhost:5173
 ```
-
-This will build and run both backend and frontend containers together, handling networking and dependencies automatically.
 
 **Note: If frontend failed to make connections to backend using localhost, try to change the backend url inside docker-compose.yml from localhost to ip or other endpoint.** 
