@@ -52,7 +52,7 @@ docker run --env-file .env -d -p 8000:8000 student-backend:v1
 
 #### 1. Install dependencies
 ```bash
-cd student-frontend
+cd student-frontend-ssr
 npm install
 ```
 
@@ -79,7 +79,7 @@ npm start
 
 #### 1. Build the Docker image
 ```bash
-cd student-frontend
+cd student-frontend-ssr
 docker build -t student-frontend:v1 .
 ```
 
